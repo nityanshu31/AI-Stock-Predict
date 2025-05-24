@@ -115,6 +115,9 @@ const Navbar = () => {
               <NavLink to="/charts" active={location.pathname === "/charts"}>
                 Charts
               </NavLink>
+              <NavLink to="/paper-trade" active={location.pathname === "/paper-trade"}>
+                Paper Trading
+              </NavLink>
               
              
             </div>
@@ -152,6 +155,9 @@ const Navbar = () => {
               </MobileNavLink>
               <MobileNavLink to="/charts" onClick={() => setIsOpen(false)} active={location.pathname === "/charts"}>
                 Charts
+              </MobileNavLink>
+              <MobileNavLink to="/paper-trade" onClick={() => setIsOpen(false)} active={location.pathname === "/paper-trade"}>
+                Paper Trading
               </MobileNavLink>
               
             </div>
