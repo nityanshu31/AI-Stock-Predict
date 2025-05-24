@@ -5,6 +5,7 @@ import Home from "./components/Home";
 import Predict from "./components/Predict";
 import Portfolio from "./components/Portfolio";
 import Charts from "./components/Charts";
+import TradingGame from "./Pages/TradingGame";
 const App = () => {
   return (
     <div>
@@ -14,6 +15,7 @@ const App = () => {
         <Route path="/predict" element={<Predict/>}/>
         <Route path="/portfolio" element={<Portfolio/>}/>
         <Route path="/charts" element={<Charts/>}/>
+        <Route path="/paper-trade" element={<TradingGame/>}/>
       </Routes>
     </div>
   );
