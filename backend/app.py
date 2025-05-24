@@ -2,9 +2,15 @@ from flask import Flask, jsonify
 from flask_cors import CORS
 import yfinance as yf
 from datetime import datetime, timedelta
-
+import os
 app = Flask(__name__)
 CORS(app)
+
+@app.route('/')
+def index():
+    return "Hello from Render!"
+
+
 
 @app.route('/predict/<symbol>', methods=['GET'])
 def predict_stock(symbol):
@@ -50,6 +56,7 @@ def predict_stock(symbol):
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
-
-if __name__ == "__main__":
-    app.run(debug=True)
+        
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))  # Use the PORT Render provides or default to 5000
+    app.run(host='0.0.0.0', port=port, debug=True)
