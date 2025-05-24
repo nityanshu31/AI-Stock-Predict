@@ -87,7 +87,8 @@ nest-asyncio==1.6.0
 networkx==3.4.2
 notebook==7.2.1
 notebook_shim==0.2.4
-numpy==2.0.0
+numpy>=1.23.0
+
 overrides==7.7.0
 packaging==24.1
 pandas==2.2.2
@@ -109,7 +110,7 @@ python-chess==1.999
 python-dateutil==2.9.0.post0
 python-json-logger==2.0.7
 pytz==2024.1
-pywin32==306
+
 pywinpty==2.0.13
 PyYAML==6.0.1
 pyzmq==26.0.3
