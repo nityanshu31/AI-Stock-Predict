@@ -3,8 +3,6 @@ from flask_cors import CORS
 import yfinance as yf
 from datetime import datetime, timedelta
 import os
-import traceback
-import logging
 
 
 
@@ -14,7 +12,6 @@ CORS(app)
 @app.route('/')
 def index():
     return "Hello from Render!"
-
 
 @app.route('/predict/<symbol>', methods=['GET'])
 def predict_stock(symbol):
@@ -37,11 +34,8 @@ def predict_stock(symbol):
 
         prediction_date = (datetime.now() + timedelta(days=1)).strftime("%Y-%m-%d")
 
-        try:
-            info = stock.info
-        except Exception:
-            info = {}
-
+     
+        info = stock.info
         market_cap = info.get("marketCap", "N/A")
         volume = info.get("volume", "N/A")
         pe_ratio = info.get("trailingPE", "N/A")
@@ -62,8 +56,7 @@ def predict_stock(symbol):
         })
 
     except Exception as e:
-        logging.error(f"Error in /predict/{symbol}: {e}\n{traceback.format_exc()}")
-        return jsonify({"error": "Internal server error"}), 500
+        return jsonify({"error": str(e)}), 500
 
         
 if __name__ == '__main__':
