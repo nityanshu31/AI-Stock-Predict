@@ -15,7 +15,7 @@ const Predict = () => {
     const handlePredict = async (selectedStock = stock) => {
         try {
             setIsLoading(true);
-            const response = await fetch(`http://127.0.0.1:5000/predict/${selectedStock}`);
+            const response = await fetch(`https://ai-stock-predict.onrender.com/predict/${selectedStock}`);
             const data = await response.json();
 
             if (data.error) {
